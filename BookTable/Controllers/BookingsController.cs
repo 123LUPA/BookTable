@@ -7,17 +7,21 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using BookTable.Models;
+using Microsoft.AspNet.Identity;
 
 namespace BookTable.Controllers
 {
+    [Authorize]
     public class BookingsController : Controller
     {
+      
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Bookings
+        [Authorize(Roles ="Administrator")]
         public ActionResult Index()
         {
-            var bookings = db.Bookings.Include(b => b.Restaurant);
+            var bookings = db.Bookings.Include(b => b.ApplicationUser).Include(b => b.Restaurant);
             return View(bookings.ToList());
         }
 
@@ -39,6 +43,7 @@ namespace BookTable.Controllers
         // GET: Bookings/Create
         public ActionResult Create()
         {
+           // ViewBag.ApplicationUserId = new SelectList(db.ApplicationUsers, "Id", "Email");
             ViewBag.RestaurantId = new SelectList(db.Restaurants, "RestaurantID", "Name");
             return View();
         }
@@ -48,8 +53,10 @@ namespace BookTable.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "BookingID,UserId,RestaurantId,BookingDate,NumberOfPeople,SeatNumber")] Booking booking)
+        public ActionResult Create([Bind(Include = "BookingID,ApplicationUserId,RestaurantId,BookingDate,NumberOfPeople,SeatNumber")] Booking booking)
         {
+            booking.ApplicationUserId = User.Identity.GetUserId();
+
             if (ModelState.IsValid)
             {
                 db.Bookings.Add(booking);
@@ -57,6 +64,7 @@ namespace BookTable.Controllers
                 return RedirectToAction("Index");
             }
 
+            //ViewBag.ApplicationUserId = new SelectList(db.ApplicationUsers, "Id", "Email", booking.ApplicationUserId);
             ViewBag.RestaurantId = new SelectList(db.Restaurants, "RestaurantID", "Name", booking.RestaurantId);
             return View(booking);
         }
@@ -73,6 +81,7 @@ namespace BookTable.Controllers
             {
                 return HttpNotFound();
             }
+           // ViewBag.ApplicationUserId = new SelectList(db.ApplicationUsers, "Id", "Email", booking.ApplicationUserId);
             ViewBag.RestaurantId = new SelectList(db.Restaurants, "RestaurantID", "Name", booking.RestaurantId);
             return View(booking);
         }
@@ -82,7 +91,7 @@ namespace BookTable.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "BookingID,UserId,RestaurantId,BookingDate,NumberOfPeople,SeatNumber")] Booking booking)
+        public ActionResult Edit([Bind(Include = "BookingID,ApplicationUserId,RestaurantId,BookingDate,NumberOfPeople,SeatNumber")] Booking booking)
         {
             if (ModelState.IsValid)
             {
@@ -90,6 +99,7 @@ namespace BookTable.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+         //   ViewBag.ApplicationUserId = new SelectList(db.ApplicationUsers, "Id", "Email", booking.ApplicationUserId);
             ViewBag.RestaurantId = new SelectList(db.Restaurants, "RestaurantID", "Name", booking.RestaurantId);
             return View(booking);
         }
@@ -118,6 +128,19 @@ namespace BookTable.Controllers
             db.Bookings.Remove(booking);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        public ActionResult DisplayBookings()
+        {
+
+
+            string userId = User.Identity.GetUserId();
+             var bookings = from a in db.Bookings.Include(b => b.ApplicationUser).Include(b => b.Restaurant)
+             where a.ApplicationUserId == userId
+                           select a;
+     
+
+            return View(bookings.ToList());
         }
 
         protected override void Dispose(bool disposing)

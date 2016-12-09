@@ -67,5 +67,5 @@ C:\Users\Palko\Desktop\BookTable\BookTable\bin\Microsoft.Owin.Security.Microsoft
 C:\Users\Palko\Desktop\BookTable\BookTable\obj\Debug\BookTable.csprojResolveAssemblyReference.cache
 C:\Users\Palko\Desktop\BookTable\BookTable\obj\Debug\BookTable.dll
 C:\Users\Palko\Desktop\BookTable\BookTable\obj\Debug\BookTable.pdb
-C:\Users\Palko\Desktop\BookTable\BookTable\obj\Debug\BookTable.Migrations.a.resources
+C:\Users\Palko\Desktop\BookTable\BookTable\obj\Debug\BookTable.Migrations.m.resources
 C:\Users\Palko\Desktop\BookTable\BookTable\obj\Debug\BookTable.csproj.GenerateResource.Cache

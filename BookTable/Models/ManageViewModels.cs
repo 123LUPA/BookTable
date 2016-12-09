@@ -12,6 +12,7 @@ namespace BookTable.Models
         public string PhoneNumber { get; set; }
         public bool TwoFactor { get; set; }
         public bool BrowserRemembered { get; set; }
+        public int Age { get; set; }
     }
 
     public class ManageLoginsViewModel
@@ -56,6 +57,9 @@ namespace BookTable.Models
         [Display(Name = "Confirm new password")]
         [Compare("NewPassword", ErrorMessage = "The new password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+    }
+    public class ChangeAgeViewModel{
+        public int NewAge { get; set; }
     }
 
     public class AddPhoneNumberViewModel

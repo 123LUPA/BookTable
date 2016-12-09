@@ -15,9 +15,10 @@ namespace BookTable.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
-
+        private UserRepo userRepo;
         public ManageController()
         {
+            this.userRepo = new UserRepo(new ApplicationDbContext());
         }
 
         public ManageController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
@@ -54,6 +55,7 @@ namespace BookTable.Controllers
         // GET: /Manage/Index
         public async Task<ActionResult> Index(ManageMessageId? message)
         {
+            
             ViewBag.StatusMessage =
                 message == ManageMessageId.ChangePasswordSuccess ? "Your password has been changed."
                 : message == ManageMessageId.SetPasswordSuccess ? "Your password has been set."
@@ -70,7 +72,9 @@ namespace BookTable.Controllers
                 PhoneNumber = await UserManager.GetPhoneNumberAsync(userId),
                 TwoFactor = await UserManager.GetTwoFactorEnabledAsync(userId),
                 Logins = await UserManager.GetLoginsAsync(userId),
-                BrowserRemembered = await AuthenticationManager.TwoFactorBrowserRememberedAsync(userId)
+                BrowserRemembered = await AuthenticationManager.TwoFactorBrowserRememberedAsync(userId),
+                Age = userRepo.getAge(userId)
+
             };
             return View(model);
         }
@@ -213,6 +217,17 @@ namespace BookTable.Controllers
             return RedirectToAction("Index", new { Message = ManageMessageId.RemovePhoneSuccess });
         }
 
+        public ActionResult ChangeAge()
+        {
+            return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult ChangeAge(ChangeAgeViewModel model)
+        {
+            this.userRepo.setAge(User.Identity.GetUserId(), model.NewAge);
+            return RedirectToAction("Index");
+        }
         //
         // GET: /Manage/ChangePassword
         public ActionResult ChangePassword()
