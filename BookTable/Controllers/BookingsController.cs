@@ -12,13 +12,14 @@ using Microsoft.AspNet.Identity;
 namespace BookTable.Controllers
 {
     [Authorize]
+
     public class BookingsController : Controller
     {
       
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Bookings
-        [Authorize(Roles ="Administrator")]
+       // [Authorize(Roles ="Administrator")]
         public ActionResult Index()
         {
             var bookings = db.Bookings.Include(b => b.ApplicationUser).Include(b => b.Restaurant);

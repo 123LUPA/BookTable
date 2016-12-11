@@ -1,31 +1,46 @@
-﻿@{
+﻿@model BookTable.Models.Booking
+
+@{
     ViewBag.Title = "Home Page";
 }
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+
+<div class="booking-holder">
+
+    <div class="booking-text-holder">
+        <span class="booking-title">Welcom to Table4You</span>
+        <span class="booking-dis">
+            Here you can book a table in desired restaurant. You won't wait in line anymore.
+            Choose the date and hour below and click find a table It is that easy!
+        </span>
+    </div>
+    @using (Html.BeginForm("Create", "Bookings", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+         <div class="container-fluid">
+             <div class="col-xs-3">
+                 @Html.LabelFor(model => model.RestaurantId, "RestaurantId", htmlAttributes: new { @class = "" })
+                  @Html.DropDownList("RestaurantId", null, htmlAttributes: new { @class = "form-control" })
+                   @Html.ValidationMessageFor(model => model.RestaurantId, "", new { @class = "text-danger" })
+             </div>
+             <div class="col-xs-3">
+                 @Html.EditorFor(model => model.BookingDate, new { htmlAttributes = new { @class = "form-control" } })
+                 @Html.ValidationMessageFor(model => model.BookingDate, "", new { @class = "text-danger" })
+             </div>
+             <div class="col-xs-3">
+                 @Html.EditorFor(model => model.NumberOfPeople, new { htmlAttributes = new { @class = "form-control" } })
+                 @Html.ValidationMessageFor(model => model.NumberOfPeople, "", new { @class = "text-danger" })
+             </div>
+             <div class="col-xs-3">
+                 <input type="submit" value="Create" class="btn btn-default" />
+
+             </div>
+
+         </div>
+   
+    }
 </div>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
-</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,24 +1,58 @@
 ﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
-}
+  background-color: white;
+  padding-top: 0; }
+
+.booking-holder {
+  color: #21160C;
+  background-image: url("../pictures/woodBackground.jpg");
+  height: 100vh;
+  padding-top: 300px; }
+
+.booking-title {
+  font-size: 23pt;
+  display: block;
+  font-weight: bold; }
+
+.booking-dis {
+  margin-top: 20px;
+  font-size: 18pt;
+  display: block; }
+
+.booking-text-holder {
+  width: 100%;
+  text-align: center;
+  padding-left: 100px;
+  padding-right: 100px; }
+
+.navigation-booking {
+  position: absolute;
+  width: 100%;
+  padding-top: 30px;
+  height: 150px;
+  background-color: rgba(0, 0, 0, 0.5); }
+
+.navbar-inverse .navbar-nav li a {
+  font-size: 15pt;
+  color: white; }
+
+body {
+  padding-top: 0px;
+  padding-bottom: 20px; }
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
-    padding-left: 15px;
-    padding-right: 15px;
-}
+  padding-left: 15px;
+  padding-right: 15px; }
 
 /* Override the default bootstrap behavior where horizontal description lists 
    will truncate terms that are too long to fit in the left column 
 */
 .dl-horizontal dt {
-    white-space: normal;
-}
+  white-space: normal; }
 
 /* Set width on the form input elements since they're 100% wide by default */
 input,
 select,
 textarea {
-    max-width: 280px;
-}
+  max-width: 280px; }
+
