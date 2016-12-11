@@ -138,11 +138,11 @@ C:\Users\krysn\Desktop\BookTable\BookTable\bin\Microsoft.Owin.Security.Microsoft
 C:\Users\krysn\Desktop\BookTable\BookTable\obj\Debug\BookTable.csprojResolveAssemblyReference.cache
 C:\Users\krysn\Desktop\BookTable\BookTable\obj\Debug\BookTable.dll
 C:\Users\krysn\Desktop\BookTable\BookTable\obj\Debug\BookTable.pdb
-C:\Users\krysn\Desktop\BookTable\BookTable\obj\Debug\BookTable.Migrations._1.resources
-C:\Users\krysn\Desktop\BookTable\BookTable\obj\Debug\BookTable.csproj.GenerateResource.Cache
 C:\Users\krysn\Desktop\BookTable\BookTable\bin\LibSassHost.Native\LibSassHost.Native-32.dll
 C:\Users\krysn\Desktop\BookTable\BookTable\bin\LibSassHost.Native\LibSassHost.Native-64.dll
 C:\Users\krysn\Desktop\BookTable\BookTable\bin\BundleTransformer.Core.dll
 C:\Users\krysn\Desktop\BookTable\BookTable\bin\BundleTransformer.SassAndScss.dll
 C:\Users\krysn\Desktop\BookTable\BookTable\bin\LibSassHost.dll
 C:\Users\krysn\Desktop\BookTable\BookTable\bin\ru-ru\BundleTransformer.Core.resources.dll
+C:\Users\krysn\Desktop\BookTable\BookTable\obj\Debug\BookTable.Migrations.m.resources
+C:\Users\krysn\Desktop\BookTable\BookTable\obj\Debug\BookTable.csproj.GenerateResource.Cache

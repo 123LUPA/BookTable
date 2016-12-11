@@ -12,7 +12,6 @@ namespace BookTable.Models
         public int RestaurantId { get; set; }
         public DateTime BookingDate { get; set; }
         public int NumberOfPeople { get; set; }
-        public int SeatNumber { get; set; }
         public virtual Restaurant Restaurant { get; set; }
         public virtual ApplicationUser ApplicationUser { get; set; }
     }

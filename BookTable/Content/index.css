@@ -1,12 +1,16 @@
 ﻿body {
+  font-family: Verdana;
   background-color: white;
   padding-top: 0; }
+
+#form {
+  margin-top: 50px; }
 
 .booking-holder {
   color: #21160C;
   background-image: url("../pictures/woodBackground.jpg");
   height: 100vh;
-  padding-top: 300px; }
+  padding-top: 150px; }
 
 .booking-title {
   font-size: 23pt;
@@ -19,19 +23,29 @@
   display: block; }
 
 .booking-text-holder {
+  padding-top: 180px;
+  padding-bottom: 250px;
+  background-color: rgba(0, 0, 0, 0.1);
   width: 100%;
   text-align: center;
   padding-left: 100px;
   padding-right: 100px; }
+
+.navbar-inverse {
+  border: none; }
 
 .navigation-booking {
   position: absolute;
   width: 100%;
   padding-top: 30px;
   height: 150px;
-  background-color: rgba(0, 0, 0, 0.5); }
+  background-color: transparent;
+  border: none; }
 
 .navbar-inverse .navbar-nav li a {
   font-size: 15pt;
-  color: white; }
+  color: #21160C; }
+
+.navbar-inverse .navbar-nav li a:hover {
+  color: #0a0602; }
 

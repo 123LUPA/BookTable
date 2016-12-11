@@ -4,8 +4,15 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Scripts.Render("~/bundles/jquery")
+
+
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    <script src="~/Scripts/moment.js"></script>
+    
+
+    <script src="~/Scripts/bootstrap-datetimepicker.js"></script>
 
 </head>
 <body>
@@ -20,7 +27,7 @@
                 <img src="~/pictures/logo.png" />
             </div>
             <div class="navbar-collapse collapse">
-              
+
                 @Html.Partial("_LoginPartial")
             </div>
         </div>
@@ -35,9 +42,8 @@
             <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
         </footer>
     </div>
-
-    @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/datetime")
     @RenderSection("scripts", required: false)
 </body>
 </html>

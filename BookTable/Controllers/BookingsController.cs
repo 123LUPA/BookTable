@@ -54,7 +54,7 @@ namespace BookTable.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "BookingID,ApplicationUserId,RestaurantId,BookingDate,NumberOfPeople,SeatNumber")] Booking booking)
+        public ActionResult Create([Bind(Include = "BookingID,ApplicationUserId,RestaurantId,BookingDate,NumberOfPeople")] Booking booking)
         {
             booking.ApplicationUserId = User.Identity.GetUserId();
 
@@ -92,7 +92,7 @@ namespace BookTable.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "BookingID,ApplicationUserId,RestaurantId,BookingDate,NumberOfPeople,SeatNumber")] Booking booking)
+        public ActionResult Edit([Bind(Include = "BookingID,ApplicationUserId,RestaurantId,BookingDate,NumberOfPeople")] Booking booking)
         {
             if (ModelState.IsValid)
             {

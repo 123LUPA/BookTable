@@ -11,38 +11,66 @@
         <span class="booking-title">Welcom to Table4You</span>
         <span class="booking-dis">
             Here you can book a table in desired restaurant. You won't wait in line anymore.
-            Choose the date and hour below and click find a table It is that easy!
+            <p class="booking-dis" >  Choose the date and hour below and click find a table It is that easy!</p>
+          
         </span>
-    </div>
-    @using (Html.BeginForm("Create", "Bookings", FormMethod.Post))
-    {
-        @Html.AntiForgeryToken()
-         <div class="container-fluid">
-             <div class="col-xs-3">
-                 @*@html.labelfor(model => model.restaurantid, "restaurantid", htmlattributes: new { @class = "control-label col-md-2" })*@
-                  @Html.DropDownList("RestaurantId", null, htmlAttributes: new { @class = "form-control" })
-                   @Html.ValidationMessageFor(model => model.RestaurantId, "", new { @class = "text-danger" })
-             </div>
-             <div class="col-xs-3">
-                 @Html.EditorFor(model => model.BookingDate, new { htmlAttributes = new { @class = "form-control", placeholder ="Date" } })
-                 @Html.ValidationMessageFor(model => model.BookingDate, "", new { @class = "text-danger" })
-             </div>
-             <div class="col-xs-3">
-                 @Html.EditorFor(model => model.NumberOfPeople, new { htmlAttributes = new { @class = "form-control", placeholder = "number of people" } })
-                 @Html.ValidationMessageFor(model => model.NumberOfPeople, "", new { @class = "text-danger" })
-             </div>
-             @Html.EditorFor(model => model.SeatNumber, new { htmlAttributes = new { @class = "form-control", placeholder ="nr of seats wtf" } })
-             @Html.ValidationMessageFor(model => model.SeatNumber, "", new { @class = "text-danger" })
-             <div class="col-xs-3">
-                 <input type="submit" value="Create" class="btn btn-default" />
 
-             </div>
 
-         </div>
+        @using (Html.BeginForm("Create", "Bookings", FormMethod.Post, new { Id = "form" }))
+        {
+            @Html.AntiForgeryToken()
+            <div class="container-fluid">
+                <div class="row">
+
+                    <div class="col-xs-3 col-sm-offset-1" >
+                        @*@html.labelfor(model => model.restaurantid, "restaurantid", htmlattributes: new { @class = "control-label col-md-2" })*@
+                        @Html.DropDownList("RestaurantId", null, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.RestaurantId, "", new { @class = "text-danger" })
+                    </div>
+                    <div class='col-sm-3'>
+                        <div class='input-group date' id='datetimepicker1'>
+                            @Html.EditorFor(model => model.BookingDate, new { htmlAttributes = new { @class = "form-control", placeholder = "Date" } })
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-3">
+                        @Html.EditorFor(model => model.NumberOfPeople, new { htmlAttributes = new { @class = "form-control", placeholder = "number of people" } })
+                        @Html.ValidationMessageFor(model => model.NumberOfPeople, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="col-xs-1">
+                        <input type="submit" value="Create" class="btn btn-default" />
+
+                    </div>
+
+                </div>
+              
+            </div>
+
+        }
+
+        <div class="container">
+            <div class="row">
+               
+          
+            </div>
+        </div>
+        @section scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+
+
+            <script type="text/javascript">
+  $(function () {
+      $('#datetimepicker1').datetimepicker({
+          format: "YYYY/MM/DD hh:mm"
+    });
+
+  });
+            </script>
+        }
    
-    }
 </div>
 
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
