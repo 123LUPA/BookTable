@@ -230,3 +230,7 @@ C:\Users\Palko\Desktop\pull\BookTable\BookTable\bin\WebActivatorEx.dll
 C:\Users\Palko\Desktop\pull\BookTable\BookTable\bin\Ninject.xml
 C:\Users\Palko\Desktop\pull\BookTable\BookTable\bin\Ninject.Web.Common.xml
 C:\Users\Palko\Desktop\pull\BookTable\BookTable\bin\Ninject.Web.Mvc.xml
+C:\Users\Palko\Desktop\pull\BookTable\BookTable\bin\Castle.Core.dll
+C:\Users\Palko\Desktop\pull\BookTable\BookTable\bin\Moq.dll
+C:\Users\Palko\Desktop\pull\BookTable\BookTable\bin\Castle.Core.xml
+C:\Users\Palko\Desktop\pull\BookTable\BookTable\bin\Moq.xml

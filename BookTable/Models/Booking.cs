@@ -14,5 +14,7 @@ namespace BookTable.Models
         public int NumberOfPeople { get; set; }
         public virtual Restaurant Restaurant { get; set; }
         public virtual ApplicationUser ApplicationUser { get; set; }
+
+   
     }
 }

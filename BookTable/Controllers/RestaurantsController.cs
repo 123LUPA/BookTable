@@ -16,6 +16,10 @@ namespace BookTable.Controllers
     {
         private IRestaurantInterface restaurantInterface;
 
+        public RestaurantsController()
+        {
+
+        }
         public RestaurantsController(IRestaurantInterface resturantInterface)
         {
             this.restaurantInterface = resturantInterface;

@@ -15,6 +15,5 @@ namespace BookTable.Models.Abstract
         void Update(Restaurant restaurant);
         void Delete(int? id);
         void Save();
-
     }
 }
