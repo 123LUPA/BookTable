@@ -7,10 +7,8 @@ using System.Threading.Tasks;
 namespace BookTable.Models
 {
 
-    interface UserInterface : IDisposable
+    public interface IUserInterface : IDisposable
     {
-
-
         int getAge(string ID);
         int setAge(string ID, int NewAge);
 

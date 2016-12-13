@@ -7,17 +7,24 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using BookTable.Models;
+using BookTable.Models.Repositories;
+using BookTable.Models.Abstract;
 
 namespace BookTable.Controllers
 {
     public class RestaurantsController : Controller
     {
-        private ApplicationDbContext db = new ApplicationDbContext();
+        private IRestaurantInterface restaurantInterface;
+
+        public RestaurantsController(IRestaurantInterface resturantInterface)
+        {
+            this.restaurantInterface = resturantInterface;
+        }
 
         // GET: Restaurants
         public ActionResult Index()
         {
-            return View(db.Restaurants.ToList());
+            return View(restaurantInterface.getAllRestaurants().ToList());
         }
 
         // GET: Restaurants/Details/5
@@ -27,7 +34,7 @@ namespace BookTable.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Restaurant restaurant = db.Restaurants.Find(id);
+            Restaurant restaurant = restaurantInterface.findRestaurant(id);
             if (restaurant == null)
             {
                 return HttpNotFound();
@@ -50,8 +57,8 @@ namespace BookTable.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Restaurants.Add(restaurant);
-                db.SaveChanges();
+                restaurantInterface.Insert(restaurant);
+                restaurantInterface.Save();
                 return RedirectToAction("Index");
             }
 
@@ -65,7 +72,7 @@ namespace BookTable.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Restaurant restaurant = db.Restaurants.Find(id);
+            Restaurant restaurant = restaurantInterface.findRestaurant(id);
             if (restaurant == null)
             {
                 return HttpNotFound();
@@ -82,8 +89,8 @@ namespace BookTable.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(restaurant).State = EntityState.Modified;
-                db.SaveChanges();
+                restaurantInterface.Update(restaurant);
+                restaurantInterface.Save();
                 return RedirectToAction("Index");
             }
             return View(restaurant);
@@ -96,7 +103,7 @@ namespace BookTable.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Restaurant restaurant = db.Restaurants.Find(id);
+            Restaurant restaurant = restaurantInterface.findRestaurant(id);
             if (restaurant == null)
             {
                 return HttpNotFound();
@@ -109,9 +116,9 @@ namespace BookTable.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Restaurant restaurant = db.Restaurants.Find(id);
-            db.Restaurants.Remove(restaurant);
-            db.SaveChanges();
+           
+            restaurantInterface.Delete(id);
+            restaurantInterface.Save();
             return RedirectToAction("Index");
         }
 
@@ -119,7 +126,7 @@ namespace BookTable.Controllers
         {
             if (disposing)
             {
-                db.Dispose();
+                restaurantInterface.Dispose();
             }
             base.Dispose(disposing);
         }

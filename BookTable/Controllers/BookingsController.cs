@@ -8,6 +8,8 @@ using System.Web;
 using System.Web.Mvc;
 using BookTable.Models;
 using Microsoft.AspNet.Identity;
+using BookTable.Models.Repositories;
+using BookTable.Models.Abstract;
 
 namespace BookTable.Controllers
 {
@@ -16,14 +18,21 @@ namespace BookTable.Controllers
     public class BookingsController : Controller
     {
       
-        private ApplicationDbContext db = new ApplicationDbContext();
+        private IBookingInterface bookingInterface;
+        private IRestaurantInterface restaurantInterface;
 
+       public BookingsController(IRestaurantInterface restaurantInterface, IBookingInterface bookingInterface)
+        {
+            this.restaurantInterface = restaurantInterface;
+            this.bookingInterface = bookingInterface;
+        }
+
+   
         // GET: Bookings
-       // [Authorize(Roles ="Administrator")]
+        // [Authorize(Roles ="Administrator")]
         public ActionResult Index()
         {
-            var bookings = db.Bookings.Include(b => b.ApplicationUser).Include(b => b.Restaurant);
-            return View(bookings.ToList());
+            return View(bookingInterface.getAllBookings().ToList());
         }
 
         // GET: Bookings/Details/5
@@ -33,7 +42,7 @@ namespace BookTable.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Booking booking = db.Bookings.Find(id);
+            Booking booking = bookingInterface.findBooking(id);
             if (booking == null)
             {
                 return HttpNotFound();
@@ -45,7 +54,7 @@ namespace BookTable.Controllers
         public ActionResult Create()
         {
            // ViewBag.ApplicationUserId = new SelectList(db.ApplicationUsers, "Id", "Email");
-            ViewBag.RestaurantId = new SelectList(db.Restaurants, "RestaurantID", "Name");
+            ViewBag.RestaurantId = new SelectList(restaurantInterface.getAllRestaurants(), "RestaurantID", "Name");
             return View();
         }
 
@@ -60,13 +69,13 @@ namespace BookTable.Controllers
 
             if (ModelState.IsValid)
             {
-                db.Bookings.Add(booking);
-                db.SaveChanges();
+                bookingInterface.Insert(booking);
+                bookingInterface.Save();
                 return RedirectToAction("Index");
             }
 
             //ViewBag.ApplicationUserId = new SelectList(db.ApplicationUsers, "Id", "Email", booking.ApplicationUserId);
-            ViewBag.RestaurantId = new SelectList(db.Restaurants, "RestaurantID", "Name", booking.RestaurantId);
+            ViewBag.RestaurantId = new SelectList(restaurantInterface.getAllRestaurants(), "RestaurantID", "Name", booking.RestaurantId);
             return View(booking);
         }
 
@@ -77,13 +86,13 @@ namespace BookTable.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Booking booking = db.Bookings.Find(id);
+            Booking booking = bookingInterface.findBooking(id);
             if (booking == null)
             {
                 return HttpNotFound();
             }
            // ViewBag.ApplicationUserId = new SelectList(db.ApplicationUsers, "Id", "Email", booking.ApplicationUserId);
-            ViewBag.RestaurantId = new SelectList(db.Restaurants, "RestaurantID", "Name", booking.RestaurantId);
+            ViewBag.RestaurantId = new SelectList(restaurantInterface.getAllRestaurants(), "RestaurantID", "Name", booking.RestaurantId);
             return View(booking);
         }
 
@@ -96,12 +105,12 @@ namespace BookTable.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(booking).State = EntityState.Modified;
-                db.SaveChanges();
+                bookingInterface.Update(booking);
+                bookingInterface.Save();
                 return RedirectToAction("Index");
             }
          //   ViewBag.ApplicationUserId = new SelectList(db.ApplicationUsers, "Id", "Email", booking.ApplicationUserId);
-            ViewBag.RestaurantId = new SelectList(db.Restaurants, "RestaurantID", "Name", booking.RestaurantId);
+            ViewBag.RestaurantId = new SelectList(restaurantInterface.getAllRestaurants(), "RestaurantID", "Name", booking.RestaurantId);
             return View(booking);
         }
 
@@ -112,7 +121,7 @@ namespace BookTable.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Booking booking = db.Bookings.Find(id);
+            Booking booking = bookingInterface.findBooking(id);
             if (booking == null)
             {
                 return HttpNotFound();
@@ -125,9 +134,9 @@ namespace BookTable.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Booking booking = db.Bookings.Find(id);
-            db.Bookings.Remove(booking);
-            db.SaveChanges();
+           
+            bookingInterface.Delete(id);
+            bookingInterface.Save();
             return RedirectToAction("Index");
         }
 
@@ -136,7 +145,7 @@ namespace BookTable.Controllers
 
 
             string userId = User.Identity.GetUserId();
-             var bookings = from a in db.Bookings.Include(b => b.ApplicationUser).Include(b => b.Restaurant)
+             var bookings = from a in bookingInterface.getAllBookings()
              where a.ApplicationUserId == userId
                            select a;
      
@@ -144,13 +153,16 @@ namespace BookTable.Controllers
             return View(bookings.ToList());
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
+        ////protected override void dispose(bool disposing)
+        ////{
+        ////    if (disposing)
+        ////    {
+        ////        bookingrep.dispose();
+        ////        restaurantrepo.dispose();
+
+
+        ////    }
+        ////    base.dispose(disposing);
+        ////}
     }
 }

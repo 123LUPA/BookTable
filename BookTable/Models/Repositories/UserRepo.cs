@@ -10,18 +10,17 @@ using System.Net;
 using System.Web.Mvc;
 using BookTable.Models;
 
-public class UserRepo : UserInterface
+public class UserRepo : IUserInterface
+{
+
+    private readonly ApplicationDbContext db;
+
+    public UserRepo(ApplicationDbContext dbContext)
     {
+        db = dbContext;
+    }
 
-    private ApplicationDbContext db;
-   // = new ApplicationDbContext();
-
-       public UserRepo(ApplicationDbContext db)
-        {
-            this.db = db;
-        }
-
-        public void Dispose()
+    public void Dispose()
         {
             throw new NotImplementedException();
         }

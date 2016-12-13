@@ -15,10 +15,11 @@ namespace BookTable.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
-        private UserRepo userRepo;
-        public ManageController()
+        private IUserInterface userInterface;
+
+        public ManageController(IUserInterface userInterface)
         {
-            this.userRepo = new UserRepo(new ApplicationDbContext());
+            this.userInterface = userInterface;
         }
 
         public ManageController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
@@ -73,7 +74,7 @@ namespace BookTable.Controllers
                 TwoFactor = await UserManager.GetTwoFactorEnabledAsync(userId),
                 Logins = await UserManager.GetLoginsAsync(userId),
                 BrowserRemembered = await AuthenticationManager.TwoFactorBrowserRememberedAsync(userId),
-                Age = userRepo.getAge(userId)
+                Age = userInterface.getAge(userId)
 
             };
             return View(model);
@@ -225,7 +226,7 @@ namespace BookTable.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult ChangeAge(ChangeAgeViewModel model)
         {
-            this.userRepo.setAge(User.Identity.GetUserId(), model.NewAge);
+            this.userInterface.setAge(User.Identity.GetUserId(), model.NewAge);
             return RedirectToAction("Index");
         }
         //

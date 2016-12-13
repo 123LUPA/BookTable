@@ -49,6 +49,21 @@
 .navbar-inverse .navbar-nav li a:hover {
   color: #0a0602; }
 
+.register {
+  margin-top: 40px;
+  margin-left: 500px; }
+
+.navigation-booking {
+  height: 70px !important; }
+
+.register-heading {
+  margin-left: 150px;
+  margin-top: 60px; }
+
+.login {
+  padding-left: 500px;
+  padding-top: 80px; }
+
 body {
   padding-top: 0px;
   padding-bottom: 20px; }
