@@ -5,7 +5,7 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookTable", "BookTable\BookTable.csproj", "{47844760-CBA6-4EA0-9A84-50FD6413DC4A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestProject2", "UnitTestProject2\UnitTestProject2.csproj", "{35482F08-D0CC-46F9-984B-7E53F4967B9B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookTableTests", "UnitTestProject2\BookTableTests.csproj", "{35482F08-D0CC-46F9-984B-7E53F4967B9B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
