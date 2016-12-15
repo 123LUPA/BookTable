@@ -69,9 +69,21 @@ namespace BookTable.Models
         [Display(Name = "Email")]
         public string Email { get; set; }
 
+        [Required]
+        [Range(1, 120)]
+        [RegularExpression("^[0-9]*$", ErrorMessage = "Age has to be numberic")]
         public int Age { get; set; }
         public int BookingID { get; set; }
 
+        [Required]
+        [StringLength(100,ErrorMessage = "The Surname has to be at least 3 characters long", MinimumLength = 3 )]
+        [RegularExpression(@"^[a-zA-Z''-'\s]{1,40}$")]
+        public string Surname { get; set; }
+
+        [Required]
+        [StringLength(100, ErrorMessage = "The Surname has to be at least 3 characters long", MinimumLength = 3)]
+        [RegularExpression(@"^[a-zA-Z''-'\s]{1,40}$")]
+        public string Name { get; set; }
 
         [Required]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]

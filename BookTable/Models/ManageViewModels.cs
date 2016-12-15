@@ -13,6 +13,10 @@ namespace BookTable.Models
         public bool TwoFactor { get; set; }
         public bool BrowserRemembered { get; set; }
         public int Age { get; set; }
+        public string Surname { get; set; }
+        public string Name { get; set; }
+        
+
     }
 
     public class ManageLoginsViewModel
@@ -59,7 +63,28 @@ namespace BookTable.Models
         public string ConfirmPassword { get; set; }
     }
     public class ChangeAgeViewModel{
+
+        [Required]
+        [Range(1, 120)]
+        [RegularExpression("^[0-9]*$", ErrorMessage = "Age has to be numberic")]
         public int NewAge { get; set; }
+    }
+
+    public class ChangeSurnameViewModel
+    {
+        [Required]
+        [StringLength(100, ErrorMessage = "The Surname has to be at least 3 characters long", MinimumLength = 3)]
+        [RegularExpression(@"^[a-zA-Z''-'\s]{1,40}$")]
+        public string NewSurname { get; set; }
+    }
+
+    public class ChangeNameViewModel
+    {
+
+        [Required]
+        [StringLength(100, ErrorMessage = "The Surname has to be at least 3 characters long", MinimumLength = 3)]
+        [RegularExpression(@"^[a-zA-Z''-'\s]{1,40}$")]
+        public string NewName { get; set; }
     }
 
     public class AddPhoneNumberViewModel

@@ -14,6 +14,8 @@ namespace BookTable.Models
         
         public int Age { set; get; }
         public int BookingID { get; set; }
+        public string Surname { get; set;}
+        public string Name { get; set; }
 
         public virtual ICollection<Booking> Bookings { get; set; }
 

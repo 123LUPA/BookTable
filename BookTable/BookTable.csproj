@@ -213,9 +213,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201612111806420_m.cs" />
-    <Compile Include="Migrations\201612111806420_m.Designer.cs">
-      <DependentUpon>201612111806420_m.cs</DependentUpon>
+    <Compile Include="Migrations\201612151827335_AA.cs" />
+    <Compile Include="Migrations\201612151827335_AA.Designer.cs">
+      <DependentUpon>201612151827335_AA.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Abstract\IBookingInterface.cs" />
@@ -224,9 +224,9 @@
     <Compile Include="Models\Booking.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\Repositories\BookingsRepo.cs" />
-    <Compile Include="Models\Repositories\RestaurantRepo.cs" />
-    <Compile Include="Models\Repositories\UserRepo.cs" />
+    <Compile Include="Models\Abstract\Repositories\BookingsRepo.cs" />
+    <Compile Include="Models\Abstract\Repositories\RestaurantRepo.cs" />
+    <Compile Include="Models\Abstract\Repositories\UserRepo.cs" />
     <Compile Include="Models\Restaurant.cs" />
     <Compile Include="Models\Abstract\IUserInterface.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -417,6 +417,8 @@
     <Content Include="Views\Bookings\Edit.cshtml" />
     <Content Include="Views\Bookings\Index.cshtml" />
     <Content Include="Views\Bookings\DisplayBookings.cshtml" />
+    <Content Include="Views\Manage\ChangeSurname.cshtml" />
+    <Content Include="Views\Manage\ChangeName.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -429,8 +431,8 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201612111806420_m.resx">
-      <DependentUpon>201612111806420_m.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201612151827335_AA.resx">
+      <DependentUpon>201612151827335_AA.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

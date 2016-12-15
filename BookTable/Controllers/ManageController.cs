@@ -74,8 +74,9 @@ namespace BookTable.Controllers
                 TwoFactor = await UserManager.GetTwoFactorEnabledAsync(userId),
                 Logins = await UserManager.GetLoginsAsync(userId),
                 BrowserRemembered = await AuthenticationManager.TwoFactorBrowserRememberedAsync(userId),
-                Age = userInterface.getAge(userId)
-
+                Age = userInterface.getAge(userId),
+                Surname = userInterface.getSurname(userId),
+                Name = userInterface.getName(userId)
             };
             return View(model);
         }
@@ -222,6 +223,18 @@ namespace BookTable.Controllers
         {
             return View();
         }
+
+        public ActionResult ChangeName()
+        {
+            return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult ChangeName(ChangeNameViewModel model)
+        {
+            this.userInterface.setName(User.Identity.GetUserId(), model.NewName);
+            return RedirectToAction("Index");
+        }
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult ChangeAge(ChangeAgeViewModel model)
@@ -229,6 +242,20 @@ namespace BookTable.Controllers
             this.userInterface.setAge(User.Identity.GetUserId(), model.NewAge);
             return RedirectToAction("Index");
         }
+
+        public ActionResult ChangeSurname()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult ChangeSurname(ChangeSurnameViewModel model)
+        {
+            this.userInterface.setSurname(User.Identity.GetUserId(), model.NewSurname);
+            return RedirectToAction("Index");
+        }
+
         //
         // GET: /Manage/ChangePassword
         public ActionResult ChangePassword()

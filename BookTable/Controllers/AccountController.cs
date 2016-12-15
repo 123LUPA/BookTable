@@ -151,7 +151,7 @@ namespace BookTable.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email, Age =model.Age, BookingID=1};
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email, Surname = model.Surname, Age =model.Age,Name = model.Name, BookingID=1};
                
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)

@@ -11,6 +11,10 @@ namespace BookTable.Models
     {
         int getAge(string ID);
         int setAge(string ID, int NewAge);
+        string setSurname(string ID, string NewName);
+        string getSurname(string ID);
+        string setName(string ID, string NewEmail);
+        string getName(string ID);
 
     }
 }
