@@ -1,23 +1,16 @@
-﻿ .register{
+﻿ .create-restaurant{
     background-image:url(../pictures/Capture.PNG);
     width: 50%;
     margin: 0 auto;
 }
 
-.navigation-booking{
-    height:70px !important;
-}
-
-.register-heading{
-    
-}
-
-.register-label{
+ 
+.restaurant-label{
     color:#351919;
     font-size:14px;
 }
 
-.register-input{
+.restaurant-input{
 -webkit-border-radius: 50px;
 -moz-border-radius: 50px;
 border-radius: 50px;
@@ -25,15 +18,14 @@ border:solid 1px;
 border-color:brown;
 }
 
-.register-button{
+.restaurant-button{
     background-color:#351919;
     color:white;
     margin-bottom:20px;
 
 }
-.register-button:hover{
+.restaurant-button:hover{
     background-color:#663d39;
     color:white
 }
-
 

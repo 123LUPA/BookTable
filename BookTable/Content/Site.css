@@ -42,6 +42,22 @@
   background-color: transparent;
   border: none; }
 
+.booking-input {
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  border-radius: 50px;
+  border: solid 1px;
+  border-color: brown; }
+
+.book-button {
+  background-color: #351919;
+  color: white;
+  margin-bottom: 20px; }
+
+.book-button:hover {
+  background-color: #663d39;
+  color: white; }
+
 .navbar-inverse .navbar-nav li a {
   font-size: 15pt;
   color: #21160C; }
@@ -50,19 +66,82 @@
   color: #0a0602; }
 
 .register {
-  margin-top: 40px;
-  margin-left: 500px; }
+  background-image: url(../pictures/Capture.PNG);
+  width: 50%;
+  margin: 0 auto; }
 
 .navigation-booking {
   height: 70px !important; }
 
-.register-heading {
-  margin-left: 150px;
-  margin-top: 60px; }
+.register-label {
+  color: #351919;
+  font-size: 14px; }
+
+.register-input {
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  border-radius: 50px;
+  border: solid 1px;
+  border-color: brown; }
+
+.register-button {
+  background-color: #351919;
+  color: white;
+  margin-bottom: 20px; }
+
+.register-button:hover {
+  background-color: #663d39;
+  color: white; }
 
 .login {
-  padding-left: 500px;
-  padding-top: 80px; }
+  background-image: url(../pictures/Capture.PNG);
+  width: 50%;
+  margin: 0 auto; }
+
+.login-label {
+  color: #351919;
+  font-size: 14px; }
+
+.login-input {
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  border-radius: 50px;
+  border: solid 1px;
+  border-color: brown; }
+
+.login-button {
+  background-color: #351919;
+  color: white;
+  margin-bottom: 20px; }
+
+.login-button:hover {
+  background-color: #663d39;
+  color: white; }
+
+.create-restaurant {
+  background-image: url(../pictures/Capture.PNG);
+  width: 50%;
+  margin: 0 auto; }
+
+.restaurant-label {
+  color: #351919;
+  font-size: 14px; }
+
+.restaurant-input {
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  border-radius: 50px;
+  border: solid 1px;
+  border-color: brown; }
+
+.restaurant-button {
+  background-color: #351919;
+  color: white;
+  margin-bottom: 20px; }
+
+.restaurant-button:hover {
+  background-color: #663d39;
+  color: white; }
 
 body {
   padding-top: 0px;

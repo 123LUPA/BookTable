@@ -42,6 +42,22 @@
   background-color: transparent;
   border: none; }
 
+.booking-input {
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  border-radius: 50px;
+  border: solid 1px;
+  border-color: brown; }
+
+.book-button {
+  background-color: #351919;
+  color: white;
+  margin-bottom: 20px; }
+
+.book-button:hover {
+  background-color: #663d39;
+  color: white; }
+
 .navbar-inverse .navbar-nav li a {
   font-size: 15pt;
   color: #21160C; }

@@ -15,16 +15,24 @@
 
         <dt>Age:</dt>
         <dd>
-            @(Model.Age)  @Html.ActionLink("change your age", "ChangeAge")
+            
+            @(Model.Age) 
+            
+            [@Html.ActionLink("Change your age", "ChangeAge")]
+            
         </dd>
         <dt>Surname:</dt>
         <dd>
-            @(Model.Surname)  @Html.ActionLink("change your surname", "ChangeSurname")
+            
+            @(Model.Surname) 
+            
+             
+            [@Html.ActionLink("Change your surname", "ChangeSurname")]
         </dd>
 
         <dt>First name:</dt>
         <dd>
-            @(Model.Name)  @Html.ActionLink("change your first name", "ChangeName")
+            @(Model.Name)  [@Html.ActionLink("Change your first name", "ChangeName")]
         </dd>
 
 

@@ -242,12 +242,23 @@
     <Content Include="Content\index.min.css">
       <DependentUpon>index.css</DependentUpon>
     </Content>
-    <Content Include="Content\login.css" />
+    <Content Include="Content\login.css">
+      <DependentUpon>login.scss</DependentUpon>
+    </Content>
+    <Content Include="Content\login.min.css">
+      <DependentUpon>login.css</DependentUpon>
+    </Content>
     <Content Include="Content\register.css">
       <DependentUpon>register.scss</DependentUpon>
     </Content>
     <Content Include="Content\register.min.css">
       <DependentUpon>register.css</DependentUpon>
+    </Content>
+    <Content Include="Content\restaurant.css">
+      <DependentUpon>restaurant.scss</DependentUpon>
+    </Content>
+    <Content Include="Content\restaurant.min.css">
+      <DependentUpon>restaurant.css</DependentUpon>
     </Content>
     <Content Include="Content\site.css">
       <DependentUpon>site.scss</DependentUpon>
@@ -258,7 +269,10 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="pictures\backgroundCompleteReservation.jpg" />
+    <Content Include="pictures\Capture.PNG" />
     <Content Include="pictures\logo.png" />
+    <Content Include="pictures\lowerButton.jpg" />
     <Content Include="pictures\woodBackground.jpg" />
     <Content Include="Scripts\bootstrap-datetimepicker.js" />
     <Content Include="Scripts\bootstrap-datetimepicker.min.js" />
@@ -269,7 +283,6 @@
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
     </None>
-    <Content Include="Content\site.scss" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
@@ -348,6 +361,9 @@
     <Content Include="Content\_bootstrap-datetimepicker.less" />
     <Content Include="Content\bootstrap-datetimepicker-build.less" />
     <Content Include="Content\register.scss" />
+    <Content Include="Content\site.scss" />
+    <Content Include="Content\login.scss" />
+    <Content Include="Content\restaurant.scss" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <None Include="Scripts\jquery-3.1.1-vsdoc.js" />
     <Content Include="Scripts\jquery-3.1.1.js" />

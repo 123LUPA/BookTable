@@ -12,9 +12,10 @@ namespace BookTable.Models
         public string ApplicationUserId { get; set; }
         public int RestaurantId { get; set; }
 
-        [DataType(DataType.DateTime)]
+        [Required]
         public DateTime BookingDate { get; set; }
 
+        [Required]
         [Range(1,100)]
         public int NumberOfPeople { get; set; }
         public virtual Restaurant Restaurant { get; set; }

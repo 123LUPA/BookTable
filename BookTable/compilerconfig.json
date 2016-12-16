@@ -10,5 +10,13 @@
   {
     "outputFile": "Content/register.css",
     "inputFile": "Content/register.scss"
+  },
+  {
+    "outputFile": "Content/login.css",
+    "inputFile": "Content/login.scss"
+  },
+  {
+    "outputFile": "Content/restaurant.css",
+    "inputFile": "Content/restaurant.scss"
   }
 ]
