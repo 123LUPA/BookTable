@@ -4,32 +4,31 @@
     ViewBag.Title = "Home Page";
 }
 
-
 <div class="booking-holder">
 
     <div class="booking-text-holder">
         <span class="booking-title">Welcom to Table4You</span>
         <span class="booking-dis">
             Here you can book a table in desired restaurant. You won't wait in line anymore.
-            <p class="booking-dis" >  Choose the date and hour below and click find a table It is that easy!</p>
-          
-        </span>
+            <p class="booking-dis">Choose the date and hour below and click find a table It is that easy!</p>
 
-        Z
+        </span>
+     </div>
+
         @using (Html.BeginForm("Create", "Bookings", FormMethod.Post, new { Id = "form" }))
         {
             @Html.AntiForgeryToken()
-            <div class="container-fluid">
+            <div class="container-fluid" id="form-holders">
                 <div class="row">
 
-                    <div class="col-xs-3 col-sm-offset-1" >
+                    <div class="col-xs-12 col-md-3 col-md-offset-1">
                         @*@html.labelfor(model => model.restaurantid, "restaurantid", htmlattributes: new { @class = "control-label col-md-2" })*@
- 
-                            @Html.DropDownList("RestaurantId", null, htmlAttributes: new { @class = "form-control booking-input" })
-                   
+
+                        @Html.DropDownList("RestaurantId", null, htmlAttributes: new { @class = "form-control booking-input" })
+
                         @Html.ValidationMessageFor(model => model.RestaurantId, "", new { @class = "text-danger" })
                     </div>
-                    <div class='col-sm-3'>
+                    <div class='col-xs-12 col-md-3'>
                         <div class='input-group date' id='datetimepicker1'>
                             @Html.EditorFor(model => model.BookingDate, new { htmlAttributes = new { @class = "form-control booking-input", placeholder = "Date" } })
                             <span class="input-group-addon">
@@ -38,30 +37,30 @@
                         </div>
                     </div>
 
-                    <div class="col-xs-3">
+                    <div class="col-xs-12 col-md-3">
                         @Html.EditorFor(model => model.NumberOfPeople, new { htmlAttributes = new { @class = "form-control booking-input", placeholder = "number of people" } })
                         @Html.ValidationMessageFor(model => model.NumberOfPeople, "", new { @class = "text-danger" })
                     </div>
 
-                    <div class="col-xs-1">
+                    <div class="col-xs-12 col-md-1">
                         <input type="submit" value="Create" class="btn btn-default book-button" />
 
                     </div>
 
                 </div>
-              
+
             </div>
 
         }
 
         <div class="container">
             <div class="row">
-               
-          
+
+
             </div>
         </div>
         @section scripts {
-        @Scripts.Render("~/bundles/jqueryval")
+            @Scripts.Render("~/bundles/jqueryval")
 
 
             <script type="text/javascript">
@@ -73,6 +72,5 @@
   });
             </script>
         }
-   
-</div>
 
+    </div>

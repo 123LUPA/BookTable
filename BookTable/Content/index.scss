@@ -5,92 +5,12 @@ body{
     font-family: Verdana;
     background-color: white;
     padding-top: 0;
-    
-}
-#form{
-    margin-top: 50px;
-}
-.booking-holder{
-    color: $brown-color;
-      background-image: url("../pictures/woodBackground.jpg");
-    height: 100vh;
-    padding-top: 150px;
-
-}
-.booking-title{
-  font-size: 23pt;
-  display: block;
-  font-weight: bold;
-
-
-}
-.booking-dis{
-    margin-top: 20px;
-    font-size: 18pt;
-    display: block;
-}
-
-.booking-text-holder{
-    padding-top: 180px;
-    padding-bottom: 250px;
-    background-color: rgba(0,0,0,0.1);
-    width: 100%;
-    text-align: center;
-    padding-left: 100px;
-    padding-right: 100px;
-}
-
-.navbar-inverse{
- border: none;
+    background-image: url("../pictures/woodBackground.jpg");
 
 }
 
 
-.navigation-booking{
-    position: absolute;
-    width: 100%;
-    padding-top: 30px;
-    height: 150px;
-    background-color: transparent;
-    border: none;
-}
 
-.booking-input{
--webkit-border-radius: 50px;
--moz-border-radius: 50px;
-border-radius: 50px;
-border:solid 1px;
-border-color:brown;
-}
-
-
-
-.book-button{
-    background-color:#351919;
-    color:white;
-    margin-bottom:20px;
-
-}
-
-.book-button:hover{
-    background-color:#663d39;
-    color:white;
-}
-
-.navbar-inverse {
-
-    .navbar-nav{
-    li{
-        a{
-            font-size: 15pt;
-            color: $brown-color;
-        }
-        a:hover{
-            color: $brown-color-hover;
-        } 
-    }
-}
-}
 
 
 

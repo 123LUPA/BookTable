@@ -213,11 +213,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201612151827335_AA.cs" />
-    <Compile Include="Migrations\201612151827335_AA.Designer.cs">
-      <DependentUpon>201612151827335_AA.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Abstract\IBookingInterface.cs" />
     <Compile Include="Models\Abstract\IRestaurantInterface.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -364,6 +359,9 @@
     <Content Include="Content\site.scss" />
     <Content Include="Content\login.scss" />
     <Content Include="Content\restaurant.scss" />
+    <Content Include="Content\navigation-top.scss" />
+    <Content Include="Content\booking.scss" />
+    <Content Include="Content\mixin.scss" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <None Include="Scripts\jquery-3.1.1-vsdoc.js" />
     <Content Include="Scripts\jquery-3.1.1.js" />
@@ -445,11 +443,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201612151827335_AA.resx">
-      <DependentUpon>201612151827335_AA.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

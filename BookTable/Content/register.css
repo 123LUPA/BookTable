@@ -1,10 +1,9 @@
 ﻿.register {
-  background-image: url(../pictures/Capture.PNG);
   width: 50%;
   margin: 0 auto; }
 
 .navigation-booking {
-  height: 70px !important; }
+  /*height:70px !important;*/ }
 
 .register-label {
   color: #351919;

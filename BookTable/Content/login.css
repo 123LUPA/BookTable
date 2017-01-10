@@ -1,7 +1,9 @@
 ﻿.login {
-  background-image: url(../pictures/Capture.PNG);
   width: 50%;
   margin: 0 auto; }
+
+.login-form {
+  background-color: rgba(0, 0, 0, 0.1); }
 
 .login-label {
   color: #351919;

@@ -1,11 +1,11 @@
 ﻿ .register{
-    background-image:url(../pictures/Capture.PNG);
+   // background-image:url(../pictures/Capture.PNG);
     width: 50%;
     margin: 0 auto;
 }
 
 .navigation-booking{
-    height:70px !important;
+    /*height:70px !important;*/
 }
 
 .register-heading{
@@ -18,11 +18,11 @@
 }
 
 .register-input{
--webkit-border-radius: 50px;
--moz-border-radius: 50px;
-border-radius: 50px;
-border:solid 1px;
-border-color:brown;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    border-radius: 50px;
+    border:solid 1px;
+    border-color:brown;
 }
 
 .register-button{

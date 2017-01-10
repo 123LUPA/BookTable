@@ -144,8 +144,6 @@ C:\Users\krysn\Desktop\BookTable\BookTable\bin\BundleTransformer.Core.dll
 C:\Users\krysn\Desktop\BookTable\BookTable\bin\BundleTransformer.SassAndScss.dll
 C:\Users\krysn\Desktop\BookTable\BookTable\bin\LibSassHost.dll
 C:\Users\krysn\Desktop\BookTable\BookTable\bin\ru-ru\BundleTransformer.Core.resources.dll
-C:\Users\krysn\Desktop\BookTable\BookTable\obj\Debug\BookTable.Migrations.m.resources
-C:\Users\krysn\Desktop\BookTable\BookTable\obj\Debug\BookTable.csproj.GenerateResource.Cache
 C:\Users\Palko\Desktop\pull\BookTable\BookTable\bin\LibSassHost.Native\LibSassHost.Native-32.dll
 C:\Users\Palko\Desktop\pull\BookTable\BookTable\bin\LibSassHost.Native\LibSassHost.Native-64.dll
 C:\Users\Palko\Desktop\pull\BookTable\BookTable\bin\roslyn\csc.exe
@@ -234,3 +232,14 @@ C:\Users\Palko\Desktop\pull\BookTable\BookTable\bin\Moq.xml
 C:\Users\Palko\Desktop\pull\BookTable\BookTable\obj\Debug\BookTable.csprojResolveAssemblyReference.cache
 C:\Users\Palko\Desktop\pull\BookTable\BookTable\obj\Debug\BookTable.Migrations.AA.resources
 C:\Users\Palko\Desktop\pull\BookTable\BookTable\obj\Debug\BookTable.csproj.GenerateResource.Cache
+C:\Users\krysn\Desktop\BookTable\BookTable\bin\Castle.Core.dll
+C:\Users\krysn\Desktop\BookTable\BookTable\bin\Moq.dll
+C:\Users\krysn\Desktop\BookTable\BookTable\bin\Ninject.dll
+C:\Users\krysn\Desktop\BookTable\BookTable\bin\Ninject.Web.Common.dll
+C:\Users\krysn\Desktop\BookTable\BookTable\bin\Ninject.Web.Mvc.dll
+C:\Users\krysn\Desktop\BookTable\BookTable\bin\WebActivatorEx.dll
+C:\Users\krysn\Desktop\BookTable\BookTable\bin\Castle.Core.xml
+C:\Users\krysn\Desktop\BookTable\BookTable\bin\Moq.xml
+C:\Users\krysn\Desktop\BookTable\BookTable\bin\Ninject.xml
+C:\Users\krysn\Desktop\BookTable\BookTable\bin\Ninject.Web.Common.xml
+C:\Users\krysn\Desktop\BookTable\BookTable\bin\Ninject.Web.Mvc.xml
