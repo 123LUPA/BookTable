@@ -12,6 +12,7 @@ using BookTable.Models.Abstract;
 
 namespace BookTable.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class RestaurantsController : Controller
     {
         private IRestaurantInterface restaurantInterface;

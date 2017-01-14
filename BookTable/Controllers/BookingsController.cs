@@ -10,6 +10,7 @@ using BookTable.Models;
 using Microsoft.AspNet.Identity;
 using BookTable.Models.Repositories;
 using BookTable.Models.Abstract;
+using System.Web.Security;
 
 namespace BookTable.Controllers
 {
@@ -20,8 +21,7 @@ namespace BookTable.Controllers
       
         private IBookingInterface bookingInterface;
         private IRestaurantInterface restaurantInterface;
-
-      
+        
 
        public BookingsController(IRestaurantInterface restaurantInterface, IBookingInterface bookingInterface)
         {
@@ -73,7 +73,7 @@ namespace BookTable.Controllers
             {
                 bookingInterface.Insert(booking);
                 bookingInterface.Save();
-                return RedirectToAction("Index");
+                return RedirectToAction("DisplayBookings");
             }
 
             //ViewBag.ApplicationUserId = new SelectList(db.ApplicationUsers, "Id", "Email", booking.ApplicationUserId);
@@ -109,7 +109,18 @@ namespace BookTable.Controllers
             {
                 bookingInterface.Update(booking);
                 bookingInterface.Save();
-                return RedirectToAction("Index");
+                // if(UserManager.IsRole)
+
+                if (User.IsInRole("Admin"))
+                {
+                    return RedirectToAction("Index");
+
+                }
+                else
+                {
+                    return RedirectToAction("DisplayBookings");
+
+                }
             }
          //   ViewBag.ApplicationUserId = new SelectList(db.ApplicationUsers, "Id", "Email", booking.ApplicationUserId);
             ViewBag.RestaurantId = new SelectList(restaurantInterface.getAllRestaurants(), "RestaurantID", "Name", booking.RestaurantId);
@@ -136,10 +147,19 @@ namespace BookTable.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-           
             bookingInterface.Delete(id);
             bookingInterface.Save();
-            return RedirectToAction("Index");
+
+            if (User.IsInRole("Admin")) 
+             {
+                return RedirectToAction("Index");
+
+            }else
+            {
+                return RedirectToAction("DisplayBookings");
+
+            }
+
         }
 
         public ActionResult DisplayBookings()
@@ -150,9 +170,17 @@ namespace BookTable.Controllers
              var bookings = from a in bookingInterface.getAllBookings()
              where a.ApplicationUserId == userId
                            select a;
-     
 
-            return View(bookings.ToList());
+            if (User.IsInRole("Admin"))
+            {
+                return RedirectToAction("Index");
+
+            }
+            else
+            {
+                return View(bookings.ToList());
+
+            }
         }
 
         ////protected override void dispose(bool disposing)
